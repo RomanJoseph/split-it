@@ -8,7 +8,7 @@ export class User {
   @Column({name: 'login', unique: true})
   login: string
 
-  @Column({name: 'password', select: false})
+  @Column({name: 'password'})
   password: string;
 
   @CreateDateColumn({name: 'created_at'})

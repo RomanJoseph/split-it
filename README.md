@@ -26,6 +26,12 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+### Docker container with Postgres
+
+```bash
+$ docker run -d -p 5432:5432 --name splitit -e POSTGRES_USER=splitit -e POSTGRES_PASSWORD=splitit postgres
+```
+
 ## Installation
 
 ```bash

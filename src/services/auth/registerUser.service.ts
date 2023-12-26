@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { User } from "src/domain/auth/entity/user.entity";
-import { UsersPostgresAdapter } from "src/infra/users/adapters/users.repository";
+import { UsersPostgresAdapter } from "src/infra/modules/auth/users/adapters/users.repository";
 import { registerUserServiceCommand } from "./command/registerUserServiceCommand";
 import { registerUserServiceResponse } from "./response/registerUserServiceResponse";
 import { EncryptService } from "src/infra/encrypt/encrypt.service";
@@ -23,7 +23,8 @@ export class RegisterUserService {
             {
                 login: command.login,
                 password: await this.encryptService.encryptPassword(command.password)
-            }));
+            }
+        ));
 
         const UserWithoutPassword = {
             id: savedUser.id,
